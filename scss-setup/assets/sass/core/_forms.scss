@@ -1,0 +1,44 @@
+﻿// Form Mixins
+@mixin placeholder($color) {
+   &:-ms-input-placeholder { color: $color }
+   &:-moz-placeholder { color: $color  }
+   &::-moz-placeholder { color: $color  }
+   &::-webkit-input-placeholder { color: $color  }
+ }
+
+@mixin autofill($color, $bgColor) {
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: $color;
+    -webkit-box-shadow: 0 0 0px 1000px $bgColor inset;
+  }
+  &:-moz-autofill,
+  &:-moz-autofill:focus {
+    -moz-text-fill-color: $color;
+    -moz-box-shadow: 0 0 0px 1000px $bgColor inset;
+  }
+  &:-o-autofill,
+  &:-o-autofill:focus {
+    -o-text-fill-color: $color;
+    -o-box-shadow: 0 0 0px 1000px $bgColor inset;
+  }
+  &:-khtml-autofill,
+  &:-khtml-autofill:focus {
+    -khtml-text-fill-color: $color;
+    -khtml-box-shadow: 0 0 0px 1000px $bgColor inset;
+  }
+}
+
+
+
+
+input[type='text'],
+input[type='tel'] {
+    font-weight: normal;
+    font-size: 25px;
+       
+    @include placeholder($white);
+    @include autofill($white, $brand-secondary);
+
+
+}
